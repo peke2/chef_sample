@@ -1,2 +1,2 @@
 file_cache_path "/tmp/chef-solo"
-cookbook_path "/home/peke2/chef_sample"
+cookbook_path "/home/vagrant/chef_sample/cookbooks"
