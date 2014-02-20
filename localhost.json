@@ -1,6 +1,8 @@
 {
 	"run_list":[
 		"recipe[base]",
-		"recipe[apache]"
+		"recipe[apache]",
+		"recipe[mysql]",
+		"recipe[php]"
 	]
 }

@@ -31,7 +31,7 @@ bash "install apache" do
 		./configure #{node['apache']['configure']}
 		make
 		make install
-		ln -s #{node['apache']['install_dir']} #{node['apache']['dir']}
+		ln -sf #{node['apache']['install_dir']} #{node['apache']['dir']}
 		chmod 744 /etc/init.d/httpd
 		chkconfig --add httpd
 		chkconfig --level 35 httpd on

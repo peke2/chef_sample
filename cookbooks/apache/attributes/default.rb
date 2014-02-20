@@ -19,11 +19,11 @@ default['apache']['configure'] = "--enable-so --enable-rewrite --enable-dav --en
 default['apache']['include_files'] = []
 
 
-default['apache']['directory_index'] = "index.php index.html"
+default['apache']['directory_index'] = "index.html index.php"
 
 
 default['apache']['server_name']   = "localhost.localdomain"
-default['apache']['document_root'] = "/var/www/"
+default['apache']['document_root'] = "/var/www"
 
 
 
