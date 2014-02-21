@@ -9,7 +9,7 @@ default['php']['dir']         = "/usr/local/#{default['php']['ref_name']}"
 default['php']['src_dir']     = "/usr/local/src"
 default['php']['ini_dir']     = "/usr/local/lib"
 
-default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c]
+default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c php-pecl-apc]
 
 
 default['php']['install_user']  = "root"
