@@ -53,6 +53,7 @@ Listen 80
 # LoadModule foo_module modules/mod_foo.so
 #
 #LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule php5_module modules/libphp5.so
 
 <IfModule !mpm_netware_module>
 <IfModule !mpm_winnt_module>
@@ -401,7 +402,7 @@ DefaultType text/plain
 #Include conf/extra/httpd-info.conf
 
 # Virtual hosts
-#Include conf/extra/httpd-vhosts.conf
+Include conf/extra/httpd-vhosts.conf
 
 # Local access to the Apache HTTP Server Manual
 #Include conf/extra/httpd-manual.conf

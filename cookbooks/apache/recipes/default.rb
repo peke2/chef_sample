@@ -18,6 +18,24 @@ cookbook_file "/etc/init.d/httpd" do
 end
 
 
+directory "#{node['apache']['test_document_root']}" do
+	not_if	"ls #{node['apache']['test_document_root']}"
+	owner	'vagrant'
+	group	'vagrant'
+	mode	'0777'
+	action :create
+end
+
+
+directory "#{node['apache']['dir']}/logs/#{node['apache']['test_name']}" do
+	not_if	"ls #{node['apache']['dir']}/logs/#{node['apache']['test_name']}"
+	owner	'root'
+	group	'root'
+	mode	'0777'
+	action :create
+end
+
+
 bash "install apache" do
 	user	node['apache']['install_user']
 	cwd		node['apache']['src_dir']
