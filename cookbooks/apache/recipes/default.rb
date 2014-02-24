@@ -18,6 +18,10 @@ cookbook_file "/etc/init.d/httpd" do
 end
 
 
+directory "#{node['apache']['test_document_base']}" do
+	mode 0755
+end
+
 directory "#{node['apache']['test_document_root']}" do
 	not_if	"ls #{node['apache']['test_document_root']}"
 	owner	'vagrant'
