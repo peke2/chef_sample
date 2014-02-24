@@ -10,8 +10,8 @@ default['php']['src_dir']     = "/usr/local/src"
 default['php']['lib_dir']     = "/usr/local/lib/#{default['php']['ref_name']}"
 default['php']['ini_dir']     = "/usr/local/lib"
 
-default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c]
-default['php']['extensions']  = %w[apc.so]
+default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c memcached]
+default['php']['extensions']  = %w[apc.so memcached.so]
 
 default['php']['install_user']  = "root"
 default['php']['install_group'] = "root"
@@ -28,5 +28,7 @@ default['php']['timezone'] = "Asia/Tokyo"
 
 default['mcrypt']['version'] = "libmcrypt-2.5.8"
 default['mcrypt']['lib_dir'] = "/usr/local/lib"
+default['memcached']['version'] = "libmemcached-1.0.16"
+default['memcached']['lib_dir'] = "/usr/local/lib"
 
 
