@@ -66,17 +66,6 @@ template "#{node['php']['ini_dir']}/php.ini" do
 end
 
 
-for include_file in node['php']['include_files']
-	template "#{node['php']['dir']}/conf/extra/#{include_file}.conf"  do
-		source	"#{include_file}.conf.erb"
-		owner	node['php']['install_user']
-		group	node['php']['install_group']
-		mode	0644
-#		notifies	:run, 'bash[restart php]', :immediately
-	end
-end
-
-
 #bash "start php" do
 #	action	:nothing
 #	code <<-EOH
