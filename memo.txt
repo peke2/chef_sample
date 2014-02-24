@@ -1,0 +1,9 @@
+(2014.02.24)
+現状の
+Apache -> MySQL -> PHP
+インストールを実行した際の時間。
+(VM作成後の何もない状態からの構築時間)
+
+Chef Client finished, 25/26 resources updated in 1599.535216845 seconds
+
+約30分ほどかかる。
