@@ -1,22 +1,24 @@
 #	インストール設定
 
-default['php']['version'] = "php-5.5.9"
-
+#default['php']['version'] = "php-5.5.9"
+default['php']['version'] = "php-5.4.25"
 
 default['php']['ref_name']    = "php"
 default['php']['dir']         = "/usr/local/#{default['php']['ref_name']}"
 #default['php']['install_dir'] = "/usr/local/#{default['php']['version']}"
 default['php']['src_dir']     = "/usr/local/src"
+default['php']['lib_dir']     = "/usr/local/lib/#{default['php']['ref_name']}"
 default['php']['ini_dir']     = "/usr/local/lib"
 
-default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c php-pecl-apc]
-
+default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c]
+default['php']['extensions']  = %w[apc.so]
 
 default['php']['install_user']  = "root"
 default['php']['install_group'] = "root"
 
+default['php']['apatch_path'] = "/usr/local/apache2"
 
-default['php']['configure'] = "--with-apxs2=/usr/local/apache2/bin/apxs --enable-mbregex --with-iconv --enable-mbstring --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --enable-ftp --with-zlib --with-curl --with-mcrypt --with-openssl"
+default['php']['configure'] = "--with-apxs2=#{default['php']['apatch_path']}/bin/apxs --enable-mbregex --with-iconv --enable-mbstring --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --enable-ftp --with-zlib --with-curl --with-mcrypt --with-openssl"
 
 
 default['php']['include_files'] = []

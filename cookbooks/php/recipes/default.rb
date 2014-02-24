@@ -57,6 +57,19 @@ bash "install php" do
 end
 
 
+bash "install apc" do
+	user	node['php']['install_user']
+	cwd		node['php']['src_dir']
+	not_if	"ls #{node['php']['lib_dir']}/extensions/*/apc.so"
+
+	notifies	:run, 'bash[restart apache]', :immediately
+	code	<<-EOH
+		pecl channel-update pecl.php.net
+		pecl install apc
+	EOH
+end
+
+
 template "#{node['php']['ini_dir']}/php.ini" do
 	source	"php.ini.erb"
 	owner	node['php']['install_user']
