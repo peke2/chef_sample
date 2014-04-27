@@ -99,7 +99,7 @@ bash "install memcached" do
 	notifies	:run, 'bash[restart apache]', :immediately
 	code	<<-EOH
 		pecl channel-update pecl.php.net
-		pecl install memcached
+		pecl install memcached-2.1.0
 	EOH
 end
 
