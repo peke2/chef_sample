@@ -57,51 +57,51 @@ bash "install php" do
 end
 
 
-cookbook_file "#{node['php']['src_dir']}/#{node['memcached']['version']}.tar.gz" do
-	mode 0644
-end
+#cookbook_file "#{node['php']['src_dir']}/#{node['memcached']['version']}.tar.gz" do
+#	mode 0644
+#end
 
 
-bash "install libmemcached" do
-	user	node['php']['install_user']
-	cwd		node['php']['src_dir']
-	not_if	"ls #{node['memcached']['lib']}/memcached*"
-
-	#「bash」と「[」の間は空けないこと！！！
-	code	<<-EOH
-		tar xzf #{node['memcached']['version']}.tar.gz
-		cd #{node['memcached']['version']}
-		./configure
-		make
-		make install
-	EOH
-end
-
-
-bash "install apc" do
-	user	node['php']['install_user']
-	cwd		node['php']['src_dir']
-	not_if	"ls #{node['php']['lib_dir']}/extensions/*/apc.so"
-
-	notifies	:run, 'bash[restart apache]', :immediately
-	code	<<-EOH
-		pecl channel-update pecl.php.net
-		pecl install apc
-	EOH
-end
+#bash "install libmemcached" do
+#	user	node['php']['install_user']
+#	cwd		node['php']['src_dir']
+#	not_if	"ls #{node['memcached']['lib']}/memcached*"
+#
+#	#「bash」と「[」の間は空けないこと！！！
+#	code	<<-EOH
+#		tar xzf #{node['memcached']['version']}.tar.gz
+#		cd #{node['memcached']['version']}
+#		./configure
+#		make
+#		make install
+#	EOH
+#end
 
 
-bash "install memcached" do
-	user	node['php']['install_user']
-	cwd		node['php']['src_dir']
-	not_if	"ls #{node['php']['lib_dir']}/extensions/*/memcached.so"
+#bash "install apc" do
+#	user	node['php']['install_user']
+#	cwd		node['php']['src_dir']
+#	not_if	"ls #{node['php']['lib_dir']}/extensions/*/apc.so"
+#
+#	notifies	:run, 'bash[restart apache]', :immediately
+#	code	<<-EOH
+#		pecl channel-update pecl.php.net
+#		pecl install apc
+#	EOH
+#end
 
-	notifies	:run, 'bash[restart apache]', :immediately
-	code	<<-EOH
-		pecl channel-update pecl.php.net
-		pecl install memcached-2.1.0
-	EOH
-end
+
+#bash "install memcached" do
+#	user	node['php']['install_user']
+#	cwd		node['php']['src_dir']
+#	not_if	"ls #{node['php']['lib_dir']}/extensions/*/memcached.so"
+#
+#	notifies	:run, 'bash[restart apache]', :immediately
+#	code	<<-EOH
+#		pecl channel-update pecl.php.net
+#		pecl install memcached-2.1.0
+#	EOH
+#end
 
 
 template "#{node['php']['ini_dir']}/php.ini" do
@@ -113,10 +113,10 @@ template "#{node['php']['ini_dir']}/php.ini" do
 end
 
 
-bash "start memcache" do
-	action	:nothing
-	code <<-EOH
-		sudo /etc/init.d/memcached start
-	EOH
-end
+#bash "start memcache" do
+#	action	:nothing
+#	code <<-EOH
+#		sudo /etc/init.d/memcached start
+#	EOH
+#end
 
