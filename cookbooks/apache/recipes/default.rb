@@ -13,11 +13,13 @@ cookbook_file "#{node['apache']['src_dir']}/#{node['apache']['version']}.tar.gz"
 end
 
 
+#	起動設定用ファイルに保持されているファイルを使う
 cookbook_file "/etc/init.d/httpd" do
 	source "httpd"
 end
 
 
+#	テスト用のディレクトリを作成
 directory "#{node['apache']['test_document_base']}" do
 	mode 0755
 end
@@ -56,6 +58,7 @@ bash "install apache" do
 end
 
 
+#	ログ出力用のディレクトリを作成する
 directory "#{node['apache']['dir']}/logs/#{node['apache']['test_name']}" do
 	not_if	"ls #{node['apache']['dir']}/logs/#{node['apache']['test_name']}"
 	owner	'root'
@@ -65,6 +68,7 @@ directory "#{node['apache']['dir']}/logs/#{node['apache']['test_name']}" do
 end
 
 
+#	templatesに定義された設定ファイルを反映させる
 template "#{node['apache']['dir']}/conf/httpd.conf" do
 	source	"httpd.conf.erb"
 	owner	node['apache']['install_user']
@@ -75,6 +79,7 @@ template "#{node['apache']['dir']}/conf/httpd.conf" do
 end
 
 
+#	templatesに定義された設定ファイルを反映させる
 for include_file in node['apache']['include_files']
 	template "#{node['apache']['dir']}/conf/extra/#{include_file}.conf"  do
 		source	"#{include_file}.conf.erb"
