@@ -21,8 +21,9 @@ default['redis']['configure'] = ""
 
 default['phpredis']['configure']     = ""
 default['phpredis']['ref_name']      = "phpredis"
-default['phpredis']['version']       = "#{default['redis']['ref_name']}-2.2.5"
+default['phpredis']['version']       = "#{default['phpredis']['ref_name']}-2.2.5"
 
+default['phpredis']['dir']           = "/usr/local/#{default['phpredis']['ref_name']}"
 default['phpredis']['src_dir']       = "/usr/local/src"
 default['phpredis']['install_user']  = "root"
 default['phpredis']['install_group'] = "root"
