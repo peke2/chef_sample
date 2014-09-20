@@ -12,7 +12,7 @@ default['apache']['src_dir']     = "/usr/local/src"
 default['apache']['install_user']  = "root"
 default['apache']['install_group'] = "root"
 
-default['apache']['configure'] = "--enable-so --enable-rewrite --enable-dav --enable-dav-fs --prefix=#{default['apache']['install_dir']}"
+default['apache']['configure'] = "--enable-ssl --enable-so --enable-rewrite --enable-dav --enable-dav-fs --prefix=#{default['apache']['install_dir']}"
 
 default['apache']['include_files']   = %w{httpd-vhosts}
 default['apache']['test_name']       = "lamp-test"
