@@ -7,6 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
+node['apache']['packages'].each do |pkg|
+	package pkg do
+		action :install
+	end
+end
 
 cookbook_file "#{node['apache']['src_dir']}/#{node['apache']['version']}.tar.gz" do
 	mode 0644
