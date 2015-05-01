@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{wget}.each{|pkg|
+%w{wget tar}.each{|pkg|
 	package pkg do
 		action :install
 	end
