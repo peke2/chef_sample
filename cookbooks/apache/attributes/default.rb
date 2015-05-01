@@ -20,8 +20,8 @@ default['apache']['directory_index'] = "index.html index.php"
 
 default['apache']['server_name']   = "localhost.localdomain"
 default['apache']['document_root'] = "/var/www"
-default['apache']['test_document_base'] = "/home/vagrant"
-default['apache']['test_document_root'] = "#{default['apache']['test_document_base']}/#{default['apache']['test_name']}"
+#default['apache']['test_document_base'] = "/var/vagrant"
+#default['apache']['test_document_root'] = "#{default['apache']['test_document_base']}/#{default['apache']['test_name']}"
 
 
 

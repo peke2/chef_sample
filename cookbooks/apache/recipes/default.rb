@@ -25,17 +25,17 @@ end
 
 
 #	テスト用のディレクトリを作成
-directory "#{node['apache']['test_document_base']}" do
-	mode 0755
-end
+#directory "#{node['apache']['test_document_base']}" do
+#	mode 0755
+#end
 
-directory "#{node['apache']['test_document_root']}" do
-	not_if	"ls #{node['apache']['test_document_root']}"
-	owner	'vagrant'
-	group	'vagrant'
-	mode	'0777'
-	action :create
-end
+#directory "#{node['apache']['test_document_root']}" do
+#	not_if	"ls #{node['apache']['test_document_root']}"
+#	owner	'vagrant'
+#	group	'vagrant'
+#	mode	'0777'
+#	action :create
+#end
 
 
 bash "install apache" do

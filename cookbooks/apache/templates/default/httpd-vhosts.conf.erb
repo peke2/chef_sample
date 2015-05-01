@@ -36,19 +36,19 @@ NameVirtualHost *:80
 </VirtualHost>
 
 
-<VirtualHost *:80>
-    ServerName lamp-test
-    DocumentRoot "<%= node['apache']['test_document_root'] %>"
-	ErrorLog "|/usr/local/apache2/bin/rotatelogs logs/<%= node['apache']['test_name'] %>/error_log  86400"
-	CustomLog "|/usr/local/apache2/bin/rotatelogs logs/<%= node['apache']['test_name'] %>/access_log 86400" common
-
-    <Directory "<%= node['apache']['test_document_root'] %>">
-        Options FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-</VirtualHost>
+#<VirtualHost *:80>
+#    ServerName lamp-test
+#    DocumentRoot "<%= node['apache']['test_document_root'] %>"
+#	ErrorLog "|/usr/local/apache2/bin/rotatelogs logs/<%= node['apache']['test_name'] %>/error_log  86400"
+#	CustomLog "|/usr/local/apache2/bin/rotatelogs logs/<%= node['apache']['test_name'] %>/access_log 86400" common
+#
+#    <Directory "<%= node['apache']['test_document_root'] %>">
+#        Options FollowSymLinks
+#        AllowOverride All
+#        Order allow,deny
+#        Allow from all
+#    </Directory>
+#
+#</VirtualHost>
 
 
