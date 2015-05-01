@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{wget tar gcc*}.each{|pkg|
+%w{wget tar gcc gcc-c++}.each{|pkg|
 	package pkg do
 		action :install
 	end
