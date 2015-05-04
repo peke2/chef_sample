@@ -50,7 +50,8 @@ end
 bash "start mysql" do
 	action	:nothing
 	code <<-EOH
-		sudo /etc/init.d/mysql.server start
+		#sudo /etc/init.d/mysql.server start
+		/etc/init.d/mysql.server start
 	EOH
 end
 

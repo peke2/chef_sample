@@ -100,7 +100,8 @@ end
 bash "start apache" do
 	action	:nothing				#「:nothing」は直接実行されない
 	code <<-EOH
-		sudo /etc/init.d/httpd start
+		#sudo /etc/init.d/httpd start
+		/etc/init.d/httpd start
 	EOH
 end
 
@@ -108,7 +109,8 @@ end
 bash "restart apache" do
 	action	:nothing
 	code <<-EOH
-		sudo /etc/init.d/httpd restart
+		#sudo /etc/init.d/httpd restart
+		/etc/init.d/httpd restart
 	EOH
 end
 
