@@ -9,7 +9,8 @@ default['php']['src_dir']     = "/usr/local/src"
 default['php']['lib_dir']     = "/usr/local/lib/#{default['php']['ref_name']}"
 default['php']['ini_dir']     = "/usr/local/lib"
 
-default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c]
+#default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel re2c]
+default['php']['packages']    = %w[curl-devel openssl-devel libxml2 libxml2-devel]
 #default['php']['extensions']  = %w[apc.so memcached.so]
 default['php']['extensions']  = []
 
