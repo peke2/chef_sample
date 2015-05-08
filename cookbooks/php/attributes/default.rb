@@ -1,6 +1,6 @@
 #	インストール設定
 
-default['php']['version'] = "php-5.5.11"
+default['php']['version'] = "php-5.6.8"
 
 default['php']['ref_name']    = "php"
 default['php']['dir']         = "/usr/local/#{default['php']['ref_name']}"
